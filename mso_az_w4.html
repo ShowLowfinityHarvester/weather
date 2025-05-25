@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WSLF Weather Product - 2025 Arizona Monsoon Season Outlook #3">
+    <meta property="og:description" content="The first 2025 Arizona Monsoon Season Outlook by the WSLF Weather Forecast Team, released on May 18, 2025.">
+    <meta property="og:image" content="https://wslf-radio.neocities.org/WSLF_Transparent.png">
+    <title>2025 Arizona Monsoon Season Outlook #1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #2a2a2a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #3a3a3a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+            z-index: 1000;
+            transition: top 0.3s ease-in-out;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .menu-bar img {
+            width: 50px;
+            margin-right: 20px;
+        }
+
+        .menu-items {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            overflow: hidden;
+        }
+
+        .menu-item {
+            margin-right: 20px;
+            cursor: pointer;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .menu-item:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .menu-item i {
+            margin-right: 8px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            margin-right: 20px;
+            cursor: pointer;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-toggle:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #3a3a3a;
+            min-width: 200px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            color: #e0e0e0;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .content {
+            max-width: 900px;
+            margin: 80px auto 30px auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .blog-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #3a3a3a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-banner img {
+            width: 100px;
+            height: auto;
+        }
+
+        .blog-banner h1 {
+            margin: 0;
+            color: #e0e0e0;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .timestamp {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .raw-product {
+            margin: 20px 0;
+            padding: 15px;
+            background: #1a1a1a;
+            border: 1px solid #555;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            white-space: pre-wrap; /* Changed to wrap text */
+            overflow-x: auto; /* Fallback for overflow */
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.6s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-bar img {
+                width: 40px;
+            }
+
+            .menu-item, .dropdown-toggle {
+                margin-right: 15px;
+                font-size: 14px;
+                padding: 6px 10px;
+            }
+
+            .dropdown-menu {
+                min-width: 180px;
+            }
+
+            .dropdown-item {
+                padding: 6px 10px;
+            }
+
+            .content {
+                margin: 70px 20px 20px 20px;
+                padding: 20px;
+            }
+
+            .blog-banner {
+                padding: 15px;
+            }
+
+            .blog-banner h1 {
+                font-size: 1.5rem;
+            }
+
+            .timestamp {
+                font-size: 0.85rem;
+            }
+
+            .raw-product {
+                font-size: 0.85rem;
+                padding: 10px;
+            }
+
+            .back-button {
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .menu-item, .dropdown-toggle {
+                margin-right: 10px;
+                font-size: 12px;
+                padding: 5px 8px;
+            }
+
+            .dropdown-menu {
+                min-width: 160px;
+            }
+
+            .dropdown-item {
+                padding: 5px 8px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .blog-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .blog-banner img {
+                margin-bottom: 10px;
+            }
+
+            .timestamp {
+                font-size: 0.8rem;
+            }
+
+            .raw-product {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+
+            .back-button {
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <div style="display: flex; align-items: center;">
+            <img src="https://www.wslfradio.org/WSLF.png" alt="WSLF Logo">
+            <div class="menu-items">
+                <div class="menu-item" onclick="window.location.href='about'"><i class="fas fa-info-circle"></i> About</div>
+                <div class="menu-item" onclick="window.location.href='https://www.wslfradio.org'"><i class="fas fa-music"></i> WSLF</div>
+                <div class="menu-item" onclick="window.location.href='https://www.wslfradio.org/kec94'"><i class="fas fa-cloud-sun"></i> KEC94</div>
+                <div class="menu-item" onclick="window.location.href='https://www.wslfradio.org/wwg41'"><i class="fas fa-cloud-sun"></i> WWG41</div>
+                <div class="menu-item" onclick="window.location.href='https://www.wslfradio.org/wxl87'"><i class="fas fa-cloud-sun"></i> WXL87</div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-toggle"><i class="fas fa-bars"></i> More</div>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <div class="dropdown-item static-item" onclick="window.location.href='status'"><i class="fas fa-signal"></i> Stream Status</div>
+                <div class="dropdown-item static-item" onclick="window.location.href='blog'"><i class="fas fa-blog"></i> Blog</div>
+                <div class="dropdown-item static-item" onclick="window.location.href='coming-soon'"><i class="fas fa-clock"></i> Coming Soon</div>
+                <div class="dropdown-item static-item" onclick="window.location.href='placeholder'"><i class="fas fa-plus"></i> Placeholder</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="blog-banner">
+            <img src="https://www.wslfradio.org/WSLF.png" alt="WSLF Logo">
+            <h1>Weather Products</h1>
+        </div>
+
+        <div class="timestamp">Issued @ 8:53 AM MST May 18, 2025</div>
+
+        <div class="raw-product">
+            <pre>2025 Arizona Monsoon Season Outlook #3  
+WSLF Radio Weather Forecast Team  
+5/18/2025 @8:52 AM MST  
+                
+...Overview...  
+The Week 3 outlook continues to support a near-normal start to the 2025 Arizona Monsoon season, with growing confidence in a slightly earlier onset for southeastern Arizona. Since last week's update, long-range models have trended more aggressively toward early Four Corners ridge development by mid to late June. This evolution aligns with recent CPC guidance showing a 33–40% chance of above-normal rainfall across southern Arizona. ENSO conditions remain neutral and are not expected to suppress monsoonal development. Overall, the signal for slightly above-average storm activity across the state remains steady, and forecast confidence is increasing.
+
+...Flooding Risk...  
+Flooding potential remains moderate to high. Recent model runs continue to highlight early-season moisture surges, particularly late June into early July. These could bring higher-than-average PWAT values and initiate localized flash flood events sooner than the climatological norm. As in previous updates, burn scar regions, flood-prone washes, and urban drainage areas should remain a focus for early-season preparedness. Continued support for tropical moisture interaction in late July adds to the seasonal flood risk across southern and central zones.
+
+...Severe Storm Risk...  
+The severe storm threat is holding steady at moderate. Early-season patterns still favor dry mid-levels and steep lapse rates, supporting microburst wind potential and isolated hail. The week 3 guidance reaffirms that southern Arizona and high terrain areas will be most prone to organized outflows and boundary-driven storm development. Isolated landspout-type tornadoes remain possible but are not expected to be a widespread concern.
+
+...Drought and Fire Risk...  
+Short-term fire weather concerns have increased slightly this week due to persistent dry conditions and gusty winds across northern Arizona. However, the medium- to long-range outlook remains positive for drought improvement, with above-average July and August rainfall still on the table. The brief critical fire window from late May through mid-June remains the primary concern ahead of moisture onset.
+
+...Uncertainty...  
+While confidence is increasing in an early monsoon push, some uncertainty remains regarding the exact timing and magnitude of the first major moisture surge. The MJO remains weak and disorganized, limiting predictability for enhanced early convection. Pacific tropical system behavior later in the season is another wildcard, especially regarding possible high-impact rainfall events in late July and August.
+
+...Summary...  
+- Start Timing: Still Near Average, with Growing Signs of Slightly Earlier Start in SE AZ  
+- Activity Level: Still Slightly Above Average  
+- Flooding Risk: Still Moderate to High  
+- Severe Risk: Still Moderate  
+- Drought Improvement: Still Expected  
+
+&&
+
+...JRLD... 2311z
+                </pre>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="back-button" onclick="window.location.href='weather_products'">Back to Products</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu adjustments
+        const menuItemsContainer = document.querySelector('.menu-items');
+        const dropdownMenu = document.querySelector('#dropdown-menu');
+        const menuItems = Array.from(document.querySelectorAll('.menu-item'));
+        const staticDropdownItems = Array.from(document.querySelectorAll('.dropdown-item.static-item'));
+        let movedItems = new Map();
+
+        function adjustMenuForMobile() {
+            const menuBarRect = document.querySelector('.menu-bar').getBoundingClientRect();
+            const dropdownRect = document.querySelector('.dropdown').getBoundingClientRect();
+            const maxVisibleX = menuBarRect.width - dropdownRect.width - 20;
+
+            movedItems.forEach((clone, onclick) => {
+                const originalItem = menuItems.find(item => item.getAttribute('onclick') === onclick);
+                if (originalItem) {
+                    const cloneRect = clone.getBoundingClientRect();
+                    if (cloneRect.right <= maxVisibleX && cloneRect.left >= 0) {
+                        menuItemsContainer.appendChild(originalItem);
+                        clone.remove();
+                        movedItems.delete(onclick);
+                    }
+                }
+            });
+
+            menuItems.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                if (itemRect.right > maxVisibleX || itemRect.left < 0) {
+                    const clone = item.cloneNode(true);
+                    clone.classList.add('dropdown-item');
+                    clone.classList.remove('menu-item');
+                    dropdownMenu.appendChild(clone);
+                    movedItems.set(item.getAttribute('onclick'), clone);
+                    item.remove();
+                }
+            });
+        }
+
+        window.addEventListener('load', adjustMenuForMobile);
+        window.addEventListener('resize', adjustMenuForMobile);
+    </script>
+</body>
+</html>
